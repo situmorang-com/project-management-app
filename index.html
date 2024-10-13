@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Entry Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="form-container">
+        <h1>New Project Entry Form</h1>
+        <form id="projectForm">
+            <!-- Basic Project Information -->
+            <fieldset>
+                <legend>Basic Project Information</legend>
+                <label for="projectName">Project Name *</label>
+                <input type="text" id="projectName" name="projectName" required>
+
+                <label for="projectDescription">Project Description *</label>
+                <textarea id="projectDescription" name="projectDescription" rows="4" maxlength="500" placeholder="Enter a brief summary of the project objectives and scope..." required></textarea>
+            </fieldset>
+
+            <!-- Project Timeline -->
+            <fieldset>
+                <legend>Project Timeline</legend>
+                <label for="startDate">Start Date *</label>
+                <input type="date" id="startDate" name="startDate" required>
+
+                <label for="endDate">End Date (Expected Completion Date) *</label>
+                <input type="date" id="endDate" name="endDate" required>
+
+                <label for="milestones">Milestones</label>
+                <div id="milestones">
+                    <button type="button" onclick="addMilestone()">Add Milestone</button>
+                </div>
+            </fieldset>
+
+            <!-- Project Objectives and Success Criteria -->
+            <fieldset>
+                <legend>Objectives and Success Criteria</legend>
+                <label for="objectives">Objectives</label>
+                <textarea id="objectives" name="objectives" rows="3" placeholder="Enter key goals to be achieved by the project..."></textarea>
+
+                <label for="successCriteria">Success Criteria</label>
+                <textarea id="successCriteria" name="successCriteria" rows="3" placeholder="Enter the metrics or standards to measure success..."></textarea>
+            </fieldset>
+
+            <!-- Team and Responsibilities -->
+            <fieldset>
+                <legend>Team and Responsibilities</legend>
+                <label for="projectOwner">Project Owner/Manager *</label>
+                <select id="projectOwner" name="projectOwner" required>
+                    <option value="">Select Project Owner</option>
+                    <!-- Options will be populated dynamically -->
+                </select>
+
+                <label for="teamMembers">Team Members</label>
+                <div id="teamMembers">
+                    <button type="button" onclick="addTeamMember()">Add Team Member</button>
+                </div>
+
+                <label for="stakeholders">Stakeholders</label>
+                <div id="stakeholders">
+                    <button type="button" onclick="addStakeholder()">Add Stakeholder</button>
+                </div>
+            </fieldset>
+
+            <!-- Budget and Resources -->
+            <fieldset>
+                <legend>Budget and Resources</legend>
+                <label for="budgetEstimate">Budget Estimate</label>
+                <input type="number" id="budgetEstimate" name="budgetEstimate" placeholder="Enter estimated budget" min="0">
+
+                <label for="allocatedResources">Allocated Resources</label>
+                <textarea id="allocatedResources" name="allocatedResources" rows="3" placeholder="List the resources allocated for the project..."></textarea>
+            </fieldset>
+
+            <!-- Risks and Project Status -->
+            <fieldset>
+                <legend>Risk and Project Status</legend>
+                <label for="knownRisks">Known Risks</label>
+                <div id="knownRisks">
+                    <button type="button" onclick="addRisk()">Add Known Risk</button>
+                </div>
+
+                <label for="projectStatus">Project Status *</label>
+                <select id="projectStatus" name="projectStatus" required>
+                    <option value="">Select Status</option>
+                    <option value="planned">Planned</option>
+                    <option value="in_progress">In Progress</option>
+                    <option value="on_hold">On Hold</option>
+                </select>
+
+                <label>Visibility</label>
+                <div>
+                    <input type="radio" id="public" name="visibility" value="public" required>
+                    <label for="public">Public</label>
+                    <input type="radio" id="team" name="visibility" value="team">
+                    <label for="team">Team</label>
+                    <input type="radio" id="private" name="visibility" value="private">
+                    <label for="private">Private</label>
+                </div>
+
+                <label for="tags">Tags/Labels</label>
+                <input type="text" id="tags" name="tags" placeholder="Enter tags separated by commas">
+            </fieldset>
+
+            <!-- Documents -->
+            <fieldset>
+                <legend>Documents</legend>
+                <label for="documents">Upload Documents</label>
+                <input type="file" id="documents" name="documents" multiple>
+            </fieldset>
+
+            <!-- Form Actions -->
+            <div class="form-actions">
+                <button type="submit">Save Project</button>
+                <button type="button" onclick="saveDraft()">Save as Draft</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
